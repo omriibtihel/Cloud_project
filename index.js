@@ -14,9 +14,9 @@ app.use(express.json());
 
 // First connection (without database) to create the database
 const tempConnection = mysql.createConnection({
-  host: process.env.DB_HOST || 'mydatabase.cmd3n24k2wlh.us-east-1.rds.amazonaws.com',
+  host: process.env.DB_HOST || 'mon-backend-db.cluster-c1h3gukzxnqc.us-east-1.rds.amazonaws.com',
   user: process.env.DB_USER || 'admin',
-  password: process.env.DB_PASSWORD || 'adminadmin'
+  password: process.env.DB_PASSWORD || 'ibtihel28092003'
 });
 
 tempConnection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME || 'mydatabase'}`, (err) => {
