@@ -14,12 +14,12 @@ app.use(express.json());
 
 // First connection (without database) to create the database
 const tempConnection = mysql.createConnection({
-  host: process.env.DB_HOST || 'mybackenddb.cluster-c1h3gukzxnqc.us-east-1.rds.amazonaws.com',
+  host: process.env.DB_HOST || 'monbackenddb.cluster-c1h3gukzxnqc.us-east-1.rds.amazonaws.com',
   user: process.env.DB_USER || 'admin',
   password: process.env.DB_PASSWORD || 'ibtihel28092003'
 });
 
-tempConnection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME || 'mybackenddb'}`, (err) => {
+tempConnection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME || 'monbackenddb'}`, (err) => {
   if (err) {
     console.error('❌ Error creating database:', err);
     return;
@@ -30,10 +30,10 @@ tempConnection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME || 'my
 
   // Now connect to the target database
   const db = mysql.createConnection({
-    host: process.env.DB_HOST || 'mybackenddb.cluster-c1h3gukzxnqc.us-east-1.rds.amazonaws.com',
+    host: process.env.DB_HOST || 'monbackenddb.cluster-c1h3gukzxnqc.us-east-1.rds.amazonaws.com',
     user: process.env.DB_USER || 'admin',
     password: process.env.DB_PASSWORD || 'ibtihel28092003',
-    database: process.env.DB_NAME || 'mybackenddb'
+    database: process.env.DB_NAME || 'monbackenddb'
   });
 
   db.connect((err) => {
